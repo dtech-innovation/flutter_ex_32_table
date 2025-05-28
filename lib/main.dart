@@ -12,28 +12,22 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Student Grade Table'),
         ),
-        body: Table(
-          border: TableBorder.all(), // Adds a border to all cells
-          columnWidths: const <int, TableColumnWidth>{
-            0: FixedColumnWidth(100.0), // fixed to 100.0 width
-            1: FlexColumnWidth(), // automatically adapts to fill the table width
-            2: FixedColumnWidth(100.0), // fixed to 100.0 width
-          },
-          children: const [
-            TableRow(children: [
-              Text('Name'),
-              Text('Subject'),
-              Text('Grade'),
+        body: DataTable(
+          columns: const [
+            DataColumn(label: Text('Name')),
+            DataColumn(label: Text('Subject')),
+            DataColumn(label: Text('Grade')),
+          ],
+          rows: const [
+            DataRow(cells: [
+              DataCell(Text('Alice')),
+              DataCell(Text('Math')),
+              DataCell(Text('A')),
             ]),
-            TableRow(children: [
-              Text('Alice'),
-              Text('Math'),
-              Text('A'),
-            ]),
-            TableRow(children: [
-              Text('Bob'),
-              Text('Science'),
-              Text('B+'),
+            DataRow(cells: [
+              DataCell(Text('Bob')),
+              DataCell(Text('Science')),
+              DataCell(Text('B+')),
             ]),
             // Add more students and grades here
           ],
